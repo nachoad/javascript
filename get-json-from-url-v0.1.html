@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+<h2>Obtain a JSON file from a URL</h2>
+
+<p id="demo"></p>
+
+<script>
+	var url = "http://www.pureexample.com/backend/ajax_crossdomain.aspx";
+	var callback = "";
+	
+	$(document).ready(function (){
+                    
+         
+        var success = function(data){
+            var html = [];
+            /* parse JSON */
+            data = $.parseJSON(data);
+            /* loop through array */
+            console.log (data);
+			alert("Success!");
+ 
+        };
+         
+        $.ajax({
+          type: 'GET',    
+          url: url,
+          data:{todo:"jsonp"},
+          dataType: "jsonp",
+          crossDomain: true,          
+          cache:false, 
+          success: success,
+          error:function(jqXHR, textStatus, errorThrown){
+            alert(errorThrown);
+          }
+        });
+    
+	});
+
+	
+	
+	///////////////////////////////////////////////////////////////
+	// Having a var (JSON type), show the content in a P element
+	// with the id=demo
+	///////////////////////////////////////////////////////////////
+	
+	/*var text = '{"employees":[' +
+	'{"firstName":"Maria","lastName":"Borbones" },' +
+	'{"firstName":"Nacho","lastName":"Alonso" },' +
+	'{"firstName":"Adriana","lastName":"Cortabitarte" }]}';
+
+	obj = JSON.parse(text);
+	document.getElementById("demo").innerHTML =
+	obj.employees[0].firstName + " " + obj.employees[0].lastName +  "</br>" +
+	obj.employees[1].firstName + " " + obj.employees[1].lastName +  "</br>" +
+	obj.employees[2].firstName + " " + obj.employees[2].lastName;*/
+</script>
+
+</body>
+</html>
