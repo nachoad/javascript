@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			function swap(one, two) {
+				document.getElementById(one).style.display = 'block';
+				document.getElementById(two).style.display = 'none';
+			}
+		</script>
+	
+		<h1>Those buttons allow to show/hide two DIVs elements called "div1" & "div2". When it shows one of them, the other one is hidden.</h1>
+		</br>
+		
+		<div style="text-align: center ;">
+			<button onClick="swap('one','two')"><h2>View DIV 1</h2></button>
+			<button onClick="swap('two','one')"><h2>View DIV 2</h2></button>
+		
+			<div id="one" style="display:none" ><h1>Showing DIV 1 :)</h1></div>
+			<div id="two"><h1>Change to DIV 2 :(</h1></div>
+		</div>
+
+	</body>
+</html>
